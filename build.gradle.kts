@@ -5,7 +5,6 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("java")
     id("org.sonarqube") version "3.0"
-    id("jacoco")
     id("io.freefair.lombok") version "5.3.0"
 }
 
@@ -49,17 +48,3 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-tasks.test {
-    finalizedBy(tasks.jacocoTestCoverageVerification) // report is always generated after tests run
-}
-//tasks.jacocoTestCoverageVerification {
-//    dependsOn(tasks.test)
-//    violationRules {
-//        rule {
-//            limit {
-//                counter = "LINE"
-//                minimum = "0.7".toBigDecimal()
-//            }
-//        }
-//    }
-//}

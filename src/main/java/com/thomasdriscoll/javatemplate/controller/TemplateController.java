@@ -1,5 +1,6 @@
 package com.thomasdriscoll.javatemplate.controller;
 
+import com.thomasdriscoll.javatemplate.lib.exceptions.DriscollException;
 import com.thomasdriscoll.javatemplate.lib.responses.DriscollResponse;
 import com.thomasdriscoll.javatemplate.service.TemplateService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class TemplateController {
     }
 
     @GetMapping("/{name}")
-    private ResponseEntity<DriscollResponse<String>> dummyFunction(@PathVariable String name){
+    private ResponseEntity<DriscollResponse<String>> dummyFunction(@PathVariable String name) throws DriscollException {
         return ResponseEntity.ok().body(new DriscollResponse<>(HttpStatus.OK.value(), templateService.dummyFunction(name)));
     }
 }
