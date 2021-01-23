@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: javatemplate
+  profiles:
+    active: development
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL}
+      label: main
+      fail-fast: true
+      username: ${CONFIG_USER_NAME}
+      password: ${CONFIG_PASSWORD}
