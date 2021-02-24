@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - CONFIG_SERVER_URL=${CONFIG_SERVER_URL}
+        - CONFIG_USER_NAME=${CONFIG_USER_NAME}
+        - CONFIG_PASSWORD=${CONFIG_PASSWORD}
+    ports:
+      - "8018:8018"
